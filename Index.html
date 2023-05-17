@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spreadsheet</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        
+        table td {
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <table id="spreadsheet">
+        <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+    </table>
+
+    <script>
+        const spreadsheet = document.getElementById('spreadsheet');
+        
+        spreadsheet.addEventListener('input', function(e) {
+            const cell = e.target;
+            const cellValue = cell.textContent;
+            const cellRow = cell.parentNode.rowIndex;
+            const cellColumn = cell.cellIndex;
+            
+            // Store the cell value in your data structure or perform any desired calculations/manipulations
+            
+            console.log(`Cell value changed: [Row ${cellRow}, Column ${cellColumn}] = ${cellValue}`);
+        });
+    </script>
+</body>
+</html>
